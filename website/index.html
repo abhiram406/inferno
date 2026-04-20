@@ -7,15 +7,17 @@
 
   <!-- Primary meta -->
   <title>Inferno - Turning Industrial Heat Into Clean Power</title>
-  <meta name="description" content="Inferno builds a complete ecosystem for industrial waste-heat recovery - energy auditing, Stirling-engine installation, and monitoring software. Zero-CapEx options available." />
+  <meta name="description" content="Inferno builds a complete ecosystem for industrial waste-heat recovery - Stirling-engine installation, maintenance, and monitoring software. Zero-CapEx options available." />
   <meta name="author" content="Inferno Energies Pvt. Ltd." />
 
   <!-- Social / Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Inferno - Turning Industrial Heat Into Clean Power" />
-  <meta property="og:description" content="A complete ecosystem for waste-heat recovery: energy auditing, Stirling-engine systems, and monitoring software. Built by engineers from Toyota Motorsport, RWTH Aachen, and KIT." />
+  <meta property="og:description" content="A complete ecosystem for waste-heat recovery: Stirling-engine systems and monitoring software. Built by engineers from Toyota Motorsport, RWTH Aachen, and KIT." />
   <meta property="og:url" content="https://www.inferno-energy.com/" />
-  <meta property="og:image" content="https://www.inferno-energy.com/og-image.jpg" />
+  <meta property="og:image" content="https://www.inferno-energy.com/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Favicon -->
@@ -36,7 +38,7 @@
     "legalName": "Inferno Energies Pvt. Ltd.",
     "url": "https://www.inferno-energy.com/",
     "logo": "https://www.inferno-energy.com/assets/logo-large.png",
-    "description": "Waste-heat recovery ecosystem: energy auditing, Stirling-engine systems, and monitoring software.",
+    "description": "Waste-heat recovery ecosystem: Stirling-engine systems and monitoring software.",
     "foundingDate": "2025",
     "founder": { "@type": "Person", "name": "Abhiram Chavali" },
     "address": { "@type": "PostalAddress", "addressLocality": "Hyderabad", "addressCountry": "IN" },
@@ -1052,8 +1054,13 @@
       gap: 1.25rem;
       margin-top: clamp(2.5rem, 5vw, 4rem);
     }
+    .cta-grid.cta-grid-2 {
+      grid-template-columns: 1.2fr 1fr;
+      max-width: 960px;
+    }
     @media (max-width: 900px) {
-      .cta-grid { grid-template-columns: 1fr; }
+      .cta-grid,
+      .cta-grid.cta-grid-2 { grid-template-columns: 1fr; }
     }
     .cta-card {
       padding: 2rem 1.75rem;
@@ -1238,8 +1245,8 @@
         </span>
         <h1>Your exhaust stack is a <em>power plant.</em></h1>
         <p class="lead">
-          An end-to-end ecosystem for industrial waste-heat recovery - energy auditing,
-          Stirling-engine installation, and intelligent monitoring. Zero-CapEx options available.
+          An end-to-end ecosystem for industrial waste-heat recovery - Stirling-engine
+          installation, maintenance, and intelligent monitoring. Zero-CapEx options available.
         </p>
         <div class="landing-actions">
           <a href="#begin" class="btn btn-primary">
@@ -1268,75 +1275,14 @@
       </div>
 
       <!-- Animated landing visual: chimney → heat → spark → flywheel -->
-      <div class="landing-visual" aria-hidden="true">
-        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="460" x2="500" y2="460" stroke="#D4CEC1" stroke-width="1"/>
-
-          <!-- Chimney / stack -->
-          <rect x="90" y="180" width="70" height="280" fill="none" stroke="#1C1917" stroke-width="1.5"/>
-          <rect x="80" y="170" width="90" height="14" fill="none" stroke="#1C1917" stroke-width="1.5"/>
-          <line x1="105" y1="230" x2="145" y2="230" stroke="#1C1917" stroke-width="0.8"/>
-          <line x1="105" y1="290" x2="145" y2="290" stroke="#1C1917" stroke-width="0.8"/>
-          <line x1="105" y1="350" x2="145" y2="350" stroke="#1C1917" stroke-width="0.8"/>
-          <line x1="105" y1="410" x2="145" y2="410" stroke="#1C1917" stroke-width="0.8"/>
-
-          <!-- Heat waves rising -->
-          <g transform="translate(125, 180)">
-            <path class="heat-wave w1" d="M-15 0 Q-5 -10 5 0 Q15 10 -15 20" fill="none" stroke="#D9422D" stroke-width="1.5" opacity="0.6"/>
-            <path class="heat-wave w2" d="M-12 0 Q-2 -12 8 0 Q18 10 -12 18" fill="none" stroke="#E87A3E" stroke-width="1.5" opacity="0.6"/>
-            <path class="heat-wave w3" d="M-18 0 Q-8 -8 2 0 Q12 12 -18 20" fill="none" stroke="#D9422D" stroke-width="1.5" opacity="0.6"/>
-          </g>
-
-          <!-- Connector pipe -->
-          <path d="M160 220 L240 220 L240 250" fill="none" stroke="#1C1917" stroke-width="1.5"/>
-
-          <!-- Stirling engine module -->
-          <g transform="translate(240, 250)">
-            <rect x="0" y="0" width="110" height="70" fill="#F0D6CE" stroke="#1C1917" stroke-width="1.5"/>
-            <text x="55" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#A8311F">HOT</text>
-            <rect x="0" y="70" width="110" height="20" fill="#EDE6DA" stroke="#1C1917" stroke-width="1.5"/>
-            <line x1="0" y1="80" x2="110" y2="80" stroke="#8A8278" stroke-width="0.5" stroke-dasharray="2 2"/>
-            <rect x="0" y="90" width="110" height="70" fill="#D6E0EA" stroke="#1C1917" stroke-width="1.5"/>
-            <text x="55" y="130" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#1E3A5F">COLD</text>
-            <line x1="110" y1="80" x2="130" y2="80" stroke="#1C1917" stroke-width="1.5"/>
-            <circle class="gas-particle" cx="20" cy="35" r="3" fill="#1E3A5F"/>
-            <circle class="gas-particle" cx="30" cy="35" r="3" fill="#1E3A5F" style="animation-delay: -0.5s"/>
-            <circle class="gas-particle" cx="40" cy="35" r="3" fill="#1E3A5F" style="animation-delay: -1s"/>
-          </g>
-
-          <!-- Flywheel -->
-          <g class="flywheel">
-            <circle cx="372" cy="190" r="40" fill="none" stroke="#1C1917" stroke-width="1.5"/>
-            <circle cx="372" cy="190" r="6" fill="#1C1917"/>
-            <line x1="372" y1="150" x2="372" y2="230" stroke="#1C1917" stroke-width="1"/>
-            <line x1="332" y1="190" x2="412" y2="190" stroke="#1C1917" stroke-width="1"/>
-            <line x1="343" y1="161" x2="401" y2="219" stroke="#1C1917" stroke-width="1"/>
-            <line x1="401" y1="161" x2="343" y2="219" stroke="#1C1917" stroke-width="1"/>
-          </g>
-          <line x1="372" y1="230" x2="372" y2="250" stroke="#1C1917" stroke-width="1.5"/>
-
-          <!-- Generator -->
-          <rect x="340" y="250" width="65" height="40" fill="none" stroke="#1C1917" stroke-width="1.5"/>
-          <text x="372" y="275" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" fill="#1C1917">GEN</text>
-
-          <line x1="372" y1="290" x2="372" y2="320" stroke="#1C1917" stroke-width="1.5"/>
-
-          <g transform="translate(372, 320)">
-            <circle class="spark s1" r="3" fill="#D9422D"/>
-            <circle class="spark s2" r="3" fill="#D9422D"/>
-            <circle class="spark s3" r="3" fill="#D9422D"/>
-            <circle class="spark s4" r="3" fill="#D9422D"/>
-          </g>
-
-          <g transform="translate(450, 320)">
-            <rect x="-18" y="-14" width="36" height="28" rx="2" fill="none" stroke="#1C1917" stroke-width="1.5"/>
-            <path d="M-4 -8 L-10 2 L0 2 L-2 10 L8 -2 L-2 -2 Z" fill="#D9422D"/>
-          </g>
-
-          <text x="125" y="155" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8A8278" letter-spacing="1">EXHAUST</text>
-          <text x="295" y="245" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8A8278" letter-spacing="1">STIRLING MODULE</text>
-          <text x="450" y="355" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#8A8278" letter-spacing="1">CLEAN POWER</text>
-        </svg>
+      <!-- Landing visual: factory illustration -->
+      <div class="landing-visual">
+        <img src="./assets/factory.webp"
+             srcset="./assets/factory.webp 720w, ./assets/factory@2x.webp 1080w"
+             sizes="(max-width: 900px) 80vw, 520px"
+             alt="Stylized illustration of an industrial plant with chimneys venting exhaust"
+             width="720" height="675"
+             style="width: 100%; height: auto; display: block; mix-blend-mode: multiply;" />
       </div>
     </div>
   </section>
@@ -1353,11 +1299,12 @@
 
       <div class="problem-grid">
         <div class="problem-image" data-reveal>
-          <img src="./assets/factory.webp"
-               srcset="./assets/factory.webp 720w, ./assets/factory.webp 1080w"
+          <img src="./assets/smoke.webp"
+               srcset="./assets/smoke.webp 900w, ./assets/smoke@2x.webp 1350w"
                sizes="(max-width: 900px) 100vw, 50vw"
-               alt="Industrial plant venting hot exhaust gases from stacks"
-               width="720" height="675" loading="lazy" />
+               alt="Industrial stacks venting coloured smoke against a pale sky"
+               width="900" height="486" loading="lazy"
+               style="mix-blend-mode: multiply;" />
         </div>
 
         <div data-reveal style="--reveal-delay: 150ms;">
@@ -1604,38 +1551,16 @@
       <div class="model-intro" data-reveal>
         <p class="lead" style="margin: 0;">
           Inferno is not a single-product company. We cover the full lifecycle of industrial
-          waste-heat recovery - from initial audit to long-term monitoring - with flexible
+          waste-heat recovery - from system installation to long-term monitoring - with flexible
           commercial models that match your plant's capital position.
         </p>
       </div>
 
       <div class="pillars">
-        <!-- PILLAR 01 - Energy Auditing -->
+        <!-- PILLAR 01 - WHR Installation & Maintenance -->
         <div class="pillar" data-reveal>
           <div class="pillar-label">
             <span class="p-mark">01</span>
-            Energy Auditing
-          </div>
-          <div class="pillar-body">
-            <h3>Quantify what's leaving your stack.</h3>
-            <p>
-              Every engagement begins with a site thermal survey. We map your exhaust streams,
-              quantify recoverable energy in kW-equivalents, and produce a plant-specific
-              financial model - before any hardware conversation.
-            </p>
-            <ul class="pillar-features">
-              <li>On-site thermal imaging &amp; flue-gas analysis</li>
-              <li>Temperature and mass-flow profiling per stream</li>
-              <li>Recoverable-power estimation with uncertainty bounds</li>
-              <li>BEE-aligned reporting, audit-ready documentation</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- PILLAR 02 - WHR Installation & Maintenance -->
-        <div class="pillar" data-reveal>
-          <div class="pillar-label">
-            <span class="p-mark">02</span>
             WHR System<br>Installation &amp; Maintenance
           </div>
           <div class="pillar-body">
@@ -1676,14 +1601,14 @@
           </div>
         </div>
 
-        <!-- PILLAR 03 - Monitoring Software -->
+        <!-- PILLAR 02 - Monitoring Software -->
         <div class="pillar" data-reveal>
           <div class="pillar-label">
-            <span class="p-mark">03</span>
+            <span class="p-mark">02</span>
             Energy Monitoring<br>Dashboard
           </div>
           <div class="pillar-body">
-            <h3>One pane of glass for every watt recovered.</h3>
+            <h3>One dashboard for every watt recovered.</h3>
             <p>
               Our monitoring dashboard is built to be vendor-agnostic. Whether you run an
               Inferno system or a legacy third-party WHR unit, a handful of sensors feeds
@@ -1898,7 +1823,7 @@
           <p>
             Inferno is the culmination of a long-held thesis: that waste-heat recovery fails in India
             not because of physics, but because of the wrong commercial model. The full-ecosystem
-            approach - audit, install, monitor - fixes that.
+            approach - install, operate, monitor - fixes that.
           </p>
 
           <ul class="credentials">
@@ -1946,8 +1871,8 @@
         </p>
       </div>
 
-      <div class="cta-grid" data-reveal>
-        <a href="#assessment" class="cta-card featured" id="ctaAssessment">
+      <div class="cta-grid cta-grid-2" data-reveal>
+        <a href="https://forms.gle/iH7WuXkwYRteEqWe9" class="cta-card featured" id="ctaAssessment">
           <h3>Pilot program</h3>
           <p>Share your plant's heat profile through a short survey. We respond within 48 hours with a site-visit proposal.</p>
           <span class="c-arrow">Start survey →</span>
@@ -1959,11 +1884,14 @@
           <span class="c-arrow">Contact us →</span>
         </a>
 
-        <a href="#whitepaper" class="cta-card" id="ctaWhitepaper">
-          <h3>Technical whitepaper</h3>
+        <!-- Technical Overview CTA hidden until the PDF is available.
+             To restore: uncomment the block below AND remove the `cta-grid-2` class on the parent div above.
+        <a href="./assets/technical-overview.pdf" class="cta-card" id="ctaOverview" target="_blank" rel="noopener">
+          <h3>Technical Overview</h3>
           <p>Engineering dossier covering thermodynamic basis, efficiency envelope, and deployment architecture.</p>
           <span class="c-arrow">Download PDF →</span>
         </a>
+        -->
       </div>
     </div>
   </section>
@@ -2013,7 +1941,6 @@
               </a>
             </li>
             <li><a href="#begin">Request Assessment</a></li>
-            <li><a href="#whitepaper">Whitepaper</a></li>
           </ul>
         </div>
       </div>
@@ -2021,8 +1948,8 @@
       <div class="footer-legal">
         <span>© 2026 Inferno Energies Pvt. Ltd.  ·  All rights reserved.</span>
         <span>
-          <a href="#privacy" style="margin-right: 1rem;">Privacy</a>
-          <a href="#terms">Terms</a>
+          <a href="./privacy.html" style="margin-right: 1rem;">Privacy</a>
+          <a href="./terms.html">Terms</a>
         </span>
       </div>
     </div>

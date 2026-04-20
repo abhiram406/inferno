@@ -1,90 +1,112 @@
-# Inferno — Website v2
+# Inferno Website — Deployment Ready
 
-Single-file, static HTML with an `/assets` folder. No build step required.
-Drop everything at the root of any static host (Vercel, Netlify, Cloudflare
-Pages, GitHub Pages, or plain S3 + CloudFront).
+Everything needed to go live at **www.inferno-energy.com**.
 
-## What changed in v2
-
-- Brand renamed to **Inferno** everywhere. Full legal name **Inferno Energies Pvt. Ltd.**
-  appears only in the `<meta name="author">` tag and the footer copyright line.
-- Logo (`logo.png`) integrated in nav and footer; favicon wired.
-- Founder photo (`founder.webp` + `@2x` variant) in the Team section.
-- Factory illustration (`factory.webp` + `@2x` variant) integrated into the Problem section.
-- Beta-type Stirling animation (`stirling.gif`) replaces the CSS-drawn alpha schematic in the Technology section.
-- **Model section fully restructured** around the three-pillar ecosystem:
-  1. Energy Auditing
-  2. WHR System Installation & Maintenance — with two side-by-side commercial models:
-     - **Model A:** System Purchase + AMC (customer keeps electricity and carbon credits)
-     - **Model B:** Energy-as-a-Service (zero CapEx, subsidised electricity subscription, Inferno monetizes credits, customer retains on-site Scope 1 & 2 emissions reduction)
-  3. Energy Monitoring Dashboard — vendor-agnostic, compatible with non-Inferno WHR systems
-- ROI table simplified (Simple-payback-scaled row removed).
-- Contact email updated to `abhiram@inferno-energy.com` throughout (schema, CTA card, footer).
-- LinkedIn link wired: `https://www.linkedin.com/company/inferno-energy/`
-- "Primary"/"Secondary" tags removed from CTA cards.
-
-## File inventory
+## What's in this folder
 
 ```
-/index.html                    76 KB — the entire site
-/assets/logo.png               4.3 KB — nav/footer logo (64 px tall, transparent)
-/assets/logo-large.png         23 KB — larger logo for marketing uses / OG image source
-/assets/favicon.png            4.6 KB — browser tab icon (64 × 64)
-/assets/founder.webp           14 KB — founder photo 1×
-/assets/founder@2x.webp        22 KB — founder photo 2× (retina)
-/assets/factory.webp           31 KB — problem-section illustration 1×
-/assets/factory@2x.webp        42 KB — problem-section illustration 2× (retina)
-/assets/stirling.gif           154 KB — beta-type Stirling engine animation
+├── index.html                 The homepage
+├── privacy.html               Privacy Policy (DPDP-aligned)
+├── terms.html                 Terms of Use
+├── robots.txt                 Search-engine crawl rules
+├── sitemap.xml                List of pages for Google
+├── vercel.json                Deployment config (optional, Vercel only)
+└── assets/
+    ├── logo.png               Logo for nav / footer
+    ├── logo-large.png         Larger logo (kept for future use)
+    ├── favicon.png            Browser tab icon
+    ├── og-image.jpg           1200×630 social share preview
+    ├── factory.webp + @2x     Landing section illustration
+    ├── smoke.webp + @2x       Problem section illustration
+    ├── founder.webp + @2x     Team section photo
+    └── stirling.gif           Technology section animation
 ```
 
-**Total first-paint payload on desktop:**
-~`index.html` (15 KB gzipped) + `logo.png` (4 KB) + `favicon.png` (5 KB) + fonts.
+## Total payload
+- HTML pages: ~100 KB uncompressed, ~20 KB gzipped
+- Critical images (above-fold): logo + favicon only = ~10 KB
+- Everything below the fold is lazy-loaded
 
-**Lazy-loaded below the fold:** `factory.webp`, `stirling.gif`, `founder.webp`.
+## Changes made in this round
 
-## Performance profile
+1. **Technical Overview CTA hidden** — the third card is commented out in the HTML (not deleted). The CTA grid rebalances to 2 cards on a centered 960-px max-width. The "Overview" link is also removed from the footer.
+   - **To restore later:** open `index.html`, search for `ctaOverview`, uncomment the `<a>` block, and remove the `cta-grid-2` class from the parent `<div>`. Replace `./assets/technical-overview.pdf` with your actual PDF URL.
 
-- Uncompressed HTML: ~76 KB
-- Over the wire (gzipped HTML): ~15 KB
-- External requests: 1 (Google Fonts CSS) + font files
-- JS: ~40 lines of vanilla, no libraries
-- All below-fold images have `loading="lazy"`
-- Retina-aware `srcset` on founder and factory images
-- All CSS animations respect `prefers-reduced-motion`
+2. **Privacy Policy** — `privacy.html` is a DPDP-Act-aligned policy. It covers: identity, data collected, purposes, sharing, cookies, user rights, retention, grievance officer. Edit the contact details if needed.
 
-## Remaining placeholders / TODO before launch
+3. **Terms of Use** — `terms.html` covers: site use, IP, no-warranty disclaimer, limitation of liability, governing law (Hyderabad jurisdiction).
 
-Search `index.html` for these hrefs:
+4. **OG Image** — `assets/og-image.jpg` (63 KB). Matches the site's actual fonts and palette. Used automatically when the URL is shared on LinkedIn, WhatsApp, Twitter, Slack, etc.
 
-| Href | What's needed |
-|---|---|
-| `#assessment` (first CTA card) | Point to a Typeform/Tally/custom survey URL for the pilot program |
-| `#whitepaper` (third CTA card, footer link) | Upload technical whitepaper PDF and link to it |
-| `#privacy`, `#terms` (footer) | Add privacy policy and terms of service pages |
-| `og:image` meta tag | Create a 1200×630 social-share image and host at `/og-image.jpg` |
+5. **robots.txt + sitemap.xml** — tells Google what to index.
 
-## Deploying to www.inferno-energy.com
+6. **vercel.json** — sets cache headers and basic security headers if you deploy to Vercel.
 
-1. Host on Vercel (free tier) or equivalent.
-2. Upload `index.html` and the `/assets` folder, preserving paths.
-3. Point DNS for `inferno-energy.com` and `www.inferno-energy.com` at the host.
-4. Configure a 301 redirect between the two hosts (pick one canonical — typically `www.`).
-5. Enable automatic HTTPS (Vercel/Netlify/Cloudflare all do this by default).
-6. Add analytics: Plausible or PostHog is enough; one `<script>` before `</head>`.
+---
 
-## Design tokens (for future consistency)
+## Deployment — the shortest path
 
-Colors, spacing, and type scale are defined as CSS variables in `:root`.
-Copy that block into any future page or stylesheet to stay on-brand.
+### Option A: Vercel (recommended)
+
+1. Go to **[vercel.com](https://vercel.com)** and sign up (free).
+2. On the dashboard, click **"Add New... → Project"** then **"Deploy a Static Site"**.
+3. You can either connect a GitHub repo or drag-and-drop this whole folder into the web UI.
+4. Vercel gives you a temporary URL (e.g. `inferno-xxxxx.vercel.app`). Open it and verify the site looks right.
+5. **Settings → Domains** → add `inferno-energy.com` and `www.inferno-energy.com`.
+6. Vercel shows you DNS records. Copy them into your domain registrar's DNS settings (wherever you bought the domain).
+7. Wait up to an hour for DNS to propagate. HTTPS is automatic.
+
+### Option B: Netlify
+
+1. Sign up at **[netlify.com](https://netlify.com)** and drag this folder onto the dashboard.
+2. You get a temporary URL. Verify the site.
+3. **Site settings → Domain management** → add `www.inferno-energy.com` and follow their DNS instructions.
+
+### Option C: Cloudflare Pages
+
+1. Sign up at **[pages.cloudflare.com](https://pages.cloudflare.com)**.
+2. If your domain is already on Cloudflare, deployment is a single zip upload.
+3. Custom domain config is one click.
+
+All three are free at this scale. Vercel is the most common and has the least friction for this setup.
+
+---
+
+## Before you go live, double-check
+
+- [ ] Open `index.html` locally and click every nav link, every CTA, every footer link. Confirm scrolling and mobile layout.
+- [ ] **Pilot program button** currently points to `#assessment` (non-functional). Create a Tally/Typeform survey, then replace `#assessment` in `index.html` with the real URL.
+- [ ] Confirm `abhiram@inferno-energy.com` is set up to receive email. Test by sending a message to yourself.
+- [ ] Confirm the LinkedIn page at `https://www.linkedin.com/company/inferno-energy/` is live and published.
+
+## Post-launch, first week
+
+1. **Add analytics** — sign up at [plausible.io](https://plausible.io) (30-day free trial) or use Google Analytics 4 if you prefer. Either way, you'll get a single `<script>` tag to paste into `index.html` just before `</head>`.
+2. **Submit to Google Search Console** — go to [search.google.com/search-console](https://search.google.com/search-console), verify ownership, submit the sitemap (`https://www.inferno-energy.com/sitemap.xml`).
+3. **Test the social preview** — paste `https://www.inferno-energy.com` into [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/) and [Twitter Card Validator](https://cards-dev.twitter.com/validator) to confirm the OG image loads.
+4. **Announce on LinkedIn** — personal post linking the site, tagged with relevant cleantech and BITS/RWTH communities.
+
+## Future additions (no urgency)
+
+- Technical Overview PDF → uncomment the third CTA, drop the PDF at `/assets/technical-overview.pdf`.
+- Case studies once you have pilots — add as a new section between Industries and Team.
+- Blog / press page — add as a new sub-page and link from the nav and footer.
+- Update `<meta name="author">` and the JSON-LD schema's `foundingDate` if the incorporation date of the Pvt. Ltd. differs from 2025.
+
+---
+
+## Design tokens (reference)
+
+All colors and spacing live in the `:root` block at the top of each HTML file's `<style>` section. If you ever add more pages, copy that block and the font-family declarations to stay consistent.
 
 ```css
 --bg: #F4EFE7;          /* warm off-white base */
 --bg-alt: #EDE6DA;      /* alternating sections */
---bg-deep: #1C1917;     /* inverted sections (Ecosystem, Footer) */
+--bg-deep: #1C1917;     /* inverted sections */
 --ink: #1C1917;         /* body text */
 --ink-muted: #5A534C;   /* secondary text */
---ember: #D9422D;       /* primary accent (matches logo red) */
---coolant: #1E3A5F;     /* cold-side technical accent */
+--ember: #D9422D;       /* primary accent */
+--coolant: #1E3A5F;     /* cold-side accent */
 ```
 
-Fonts: Instrument Serif (display) + IBM Plex Sans (body) + IBM Plex Mono (data).
+Fonts: Instrument Serif (display) + IBM Plex Sans (body) + IBM Plex Mono (data/eyebrows).
